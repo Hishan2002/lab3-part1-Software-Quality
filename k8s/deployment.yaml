@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: binarycalculator
+  labels:
+    app: binarycalculator
+spec:
+  replicas: 2  # Set how many pods you want
+  selector:
+    matchLabels:
+      app: binarycalculator
+  template:
+    metadata:
+      labels:
+        app: binarycalculator
+    spec:
+      containers:
+        - name: binarycalculator
+          image: northamerica-northeast2-docker.pkg.dev/modified-enigma-452723-s2/sofe3980u/binarycalculator:latest
+          ports:
+            - containerPort: 8080
